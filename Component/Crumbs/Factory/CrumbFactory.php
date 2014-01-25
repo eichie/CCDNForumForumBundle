@@ -15,7 +15,7 @@ namespace CCDNForum\ForumBundle\Component\Crumbs\Factory;
 
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
-
+use Symfony\Cmf\Component\Routing\ChainRouter;
 use CCDNForum\ForumBundle\Component\Crumbs\Factory\CrumbTrail;
 
 /**
@@ -49,7 +49,7 @@ class CrumbFactory
      * @param \Symfony\Bundle\FrameworkBundle\Translation\Translator $translator
      * @param \Symfony\Bundle\FrameworkBundle\Routing\Router         $router
      */
-    public function __construct(Translator $translator, Router $router)
+    public function __construct(Translator $translator, ChainRouter $router)
     {
         $this->translator = $translator;
         $this->router = $router;
