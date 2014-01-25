@@ -43,5 +43,10 @@
     "autoload": {
         "psr-0": { "CCDNForum\\ForumBundle": "" }
     },
-    "target-dir": "CCDNForum/ForumBundle"
+    "target-dir": "CCDNForum/ForumBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
