@@ -52,7 +52,7 @@ class LoadForumData extends AbstractFixture implements OrderedFixtureInterface, 
 
     protected function checkBoard($boardId)
     {
-        return $this->container->get('ccdn_forum_forum.repository.board')->findOneForumById($boardId);
+        return $this->container->get('ccdn_forum_forum.repository.board')->findOneBoardById($boardId);
     }
 
     protected function createCategory($name, $order)
