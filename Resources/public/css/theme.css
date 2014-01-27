@@ -14,8 +14,7 @@ html, body {
 }
 
 #page-main {
-	padding-top:50px;
-	padding-bottom:150px; /* this needs to be bigger than footer height */
+	padding-bottom:10px; /* this needs to be bigger than footer height */
 	overflow:auto;
 }
 
