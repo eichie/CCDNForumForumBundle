@@ -45,14 +45,14 @@ class LoadForumData extends AbstractFixture implements OrderedFixtureInterface, 
         $this->container = $container;
     }
 
-    protected function checkCategory($categoryName)
+    protected function checkCategory($categoryId)
     {
-        return $this->container->get('ccdn_forum_forum.repository.category')->findOneCategoryByName($categoryName);
+        return $this->container->get('ccdn_forum_forum.repository.category')->findOneCategoryById($categoryId);
     }
 
-    protected function checkBoard($boardName)
+    protected function checkBoard($boardId)
     {
-        return $this->container->get('ccdn_forum_forum.repository.board')->findOneCategoryByName($boardName);
+        return $this->container->get('ccdn_forum_forum.repository.board')->findOneForumById($boardId);
     }
 
     protected function createCategory($name, $order)
@@ -119,13 +119,13 @@ class LoadForumData extends AbstractFixture implements OrderedFixtureInterface, 
     {
         $referencedUserAdmin = $this->getReference($this->container->getParameter('ccdn_forum_forum.fixtures.user_admin'));
 
-        if (null == $this->checkCategory('General')) {
+        if (null == $this->checkCategory(1)) {
             $categoryGeneral = $this->createCategory('General', 0);
 
             $manager->persist($categoryGeneral);
             $manager->flush();
 
-            if (null == $this->checkBoard('Introductions')) {
+            if (null == $this->checkBoard(1)) {
                 $boardIntroductions = $this->createBoard($categoryGeneral, 0, 'Introductions', 'Say hello and introduce yoursel!' . "\n" . 'Tell us a little about yourself.', 1, 1);
                 $topic = $this->createTopic($boardIntroductions, 'Welcome to CCDNForum.');
                 $post = $this->createPost($topic, 'Welcome to the CodeConsortium Forum.' . "\n" . 'Please introduce yourself and make yourself at home. :)', $manager->merge($referencedUserAdmin));
